@@ -10,3 +10,9 @@ La propiedad virtual es una propiedad que se usa para indicar que una propiedad 
 
 - DbContext
 La clase DbContext nos permite acceder a los datos de nuestra base de datos.
+
+- DataAnnotation
+Los dataannotation son atributos que nos permiten agregar validaciones a nuestras propiedades.
+
+- [NoMapped]
+El atributo NoMapped nos permite indicar que una propiedad no debe ser mapeada a una columna de la base de datos.
