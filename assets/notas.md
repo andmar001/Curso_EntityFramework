@@ -24,3 +24,12 @@ dotnet run -> ejecutar el proyecto
 Es una forma de configurar las entidades de nuestro modelo de datos.  sin la necesidad de usar dataannotation.
 Es una forma avanzada de configurar las entidades de nuestro modelo de datos.
 La configuracion de las entidades se realiza en el metodo OnModelCreating de la clase DbContext.
+
+- ignore -> ignorar una propiedad
+- HasKey -> indicar la llave primaria de una entidad
+- HasMaxLength -> indicar el tamaño maximo de una propiedad
+- HasColumnType -> indicar el tipo de dato de una propiedad
+- HasIndex -> indicar un indice para una propiedad
+- HasMany -> indicar una relacion de uno a muchos
+- HasOne -> indicar una relacion de uno a uno
+- HasData -> indicar datos por defecto para una entidad

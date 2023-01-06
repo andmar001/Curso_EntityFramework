@@ -30,6 +30,7 @@ namespace project_ef
                 tarea.Property(p=>p.Descripcion);
                 tarea.Property(p=>p.PrioridadTarea);
                 tarea.Property(p=>p.FechaCreacion);
+                tarea.Ignore(p=>p.Resumen);//No se guarda en la base de datos ignore
             });
         }
     }
