@@ -3,12 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using project_ef;
 using project_ef.Models;
 
-// public IConfiguration Configuration { get;  }
-// public Program(IConfiguration configuration)
-// {
-//     Configuration = configuration;
-// }
-
 var builder = WebApplication.CreateBuilder(args);
 //Crea la base de datos en memoria
 // builder.Services.AddDbContext<TareasContext>(p => p.UseInMemoryDatabase("TareasDB"));
@@ -25,6 +19,23 @@ app.MapGet("/dbconexion", async([FromServices] TareasContext dbContext) =>
 {
     dbContext.Database.EnsureCreated();
     return Results.Ok("Base de datos en memoria: " + dbContext.Database.IsInMemory());
+});
+
+app.MapGet("/api/tareas", async([FromServices] TareasContext dbContext) =>
+{
+    return Results.Ok(dbContext.Tareas);
+});
+
+app.MapGet("/api/categorias", async ([FromServices] TareasContext dbContext) =>
+{
+    return Results.Ok(dbContext.Categorias);
+});
+
+//filtros
+//prioridad tarea baja
+app.MapGet("api/prioridad",async ([FromServices] TareasContext dbContext) =>
+{
+    return Results.Ok(dbContext.Tareas.Where(p => p.PrioridadTarea == Prioridad.Baja));
 });
 
 app.Run();
