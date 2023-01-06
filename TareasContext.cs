@@ -15,6 +15,7 @@ namespace project_ef
             List<Categoria> categoriasInit = new List<Categoria>();
             categoriasInit.Add(new Categoria { CategoriaId = Guid.Parse("0ca5fc9a-a7c4-4505-b9e1-18767c84c190"), Nombre = "Actividades Pendientes", Peso = 20 });
             categoriasInit.Add(new Categoria { CategoriaId = Guid.Parse("0ca5fc9a-a7c4-4505-b9e1-18767c84c191"), Nombre = "Actividades Personales", Peso = 50 });
+            categoriasInit.Add(new Categoria { CategoriaId = Guid.Parse("0ca5fc9a-a7c4-4505-b9e1-18767c84c192"), Nombre = "Actividades Laborales", Peso = 90 });
 
 
             modelBuilder.Entity<Categoria>(categoria =>
@@ -32,6 +33,7 @@ namespace project_ef
             List<Tarea> tareasInit = new List<Tarea>();
             tareasInit.Add(new Tarea { TareaId = Guid.Parse("0ca5fc9a-a7c4-4505-b9e1-18767c84cc10"), CategoriaId = Guid.Parse("0ca5fc9a-a7c4-4505-b9e1-18767c84c190"), PrioridadTarea= Prioridad.Media, Titulo = "Pago de Servicios Publicos", FechaCreacion = DateTime.Now });
             tareasInit.Add(new Tarea { TareaId = Guid.Parse("0ca5fc9a-a7c4-4505-b9e1-18767c84cc11"), CategoriaId = Guid.Parse("0ca5fc9a-a7c4-4505-b9e1-18767c84c191"), PrioridadTarea= Prioridad.Baja, Titulo = "Terminar de ver serie de netflix", FechaCreacion = DateTime.Now });
+            tareasInit.Add(new Tarea { TareaId = Guid.Parse("0ca5fc9a-a7c4-4505-b9e1-18767c84cc12"), CategoriaId = Guid.Parse("0ca5fc9a-a7c4-4505-b9e1-18767c84c190"), PrioridadTarea= Prioridad.Alta, Titulo = "Terminar la API de producción", FechaCreacion = DateTime.Now });
             
 
             modelBuilder.Entity<Tarea>(tarea =>
