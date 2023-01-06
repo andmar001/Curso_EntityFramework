@@ -1,7 +1,7 @@
-using System.Collections.Immutable;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using project_ef;
+using project_ef.Models;
 
 // public IConfiguration Configuration { get;  }
 // public Program(IConfiguration configuration)

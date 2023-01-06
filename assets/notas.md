@@ -33,3 +33,13 @@ La configuracion de las entidades se realiza en el metodo OnModelCreating de la 
 - HasMany -> indicar una relacion de uno a muchos
 - HasOne -> indicar una relacion de uno a uno
 - HasData -> indicar datos por defecto para una entidad
+
+# Migraciones ()
+- Debemos instalar el paquete de ef core para poder usar las migraciones.
+dotnet ef --- revisar comandos
+instalacion de paquetes ---- dotnet tool install --global dotnet-ef
+- dotnet tool install --global dotnet-ef
+Es una funcionalidad que nos permite crear un script de base de datos a partir de nuestro modelo de datos.
+Nos permite construir un versionado de nuestra base de datos.
+- dotnet ef migrations add InitialCreate -> crear una migracion
+- dotnet ef database update -> ejecutar la migracion
