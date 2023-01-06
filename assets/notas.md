@@ -16,3 +16,6 @@ Los dataannotation son atributos que nos permiten agregar validaciones a nuestra
 
 - [NoMapped]
 El atributo NoMapped nos permite indicar que una propiedad no debe ser mapeada a una columna de la base de datos.
+
+dotnet build -> compilar el proyecto
+dotnet run -> ejecutar el proyecto
