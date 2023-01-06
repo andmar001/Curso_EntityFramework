@@ -19,3 +19,8 @@ El atributo NoMapped nos permite indicar que una propiedad no debe ser mapeada a
 
 dotnet build -> compilar el proyecto
 dotnet run -> ejecutar el proyecto
+
+# Fluent API
+Es una forma de configurar las entidades de nuestro modelo de datos.  sin la necesidad de usar dataannotation.
+Es una forma avanzada de configurar las entidades de nuestro modelo de datos.
+La configuracion de las entidades se realiza en el metodo OnModelCreating de la clase DbContext.
