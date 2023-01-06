@@ -54,3 +54,8 @@ El metodo Down nos permite revertir la migracion.
 Crear la migracion en la base de datos.
 Comando que se ejecuta cada que realizamos una nueva migracion.
 dotnet ef database update
+
+nueva migracion nuevo campo "Peso" en la tabla "Categorias"
+- dotnet ef migrations add ColumnPesoCategori
+Actualizar la base de datos los nuevos cambios
+- dotnet ef database update

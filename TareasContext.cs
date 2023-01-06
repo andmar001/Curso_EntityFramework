@@ -19,6 +19,7 @@ namespace project_ef
                 
                 categoria.Property(p=>p.Nombre).IsRequired().HasMaxLength(150);
                 categoria.Property(p=>p.Decripcion);
+                categoria.Property(p=>p.Peso);
             });
 
             modelBuilder.Entity<Tarea>(tarea =>
