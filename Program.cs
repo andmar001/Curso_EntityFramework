@@ -44,4 +44,17 @@ app.MapGet("api/include",async ([FromServices] TareasContext dbContext) =>
     return Results.Ok(dbContext.Tareas.Include(p=>p.Categoria).Where(p=>p.PrioridadTarea == Prioridad.Alta));
 });
 
+// create
+app.MapPost("api/crearTarea", async ([FromServices] TareasContext dbContext, [FromBody] Tarea tarea) =>
+{
+    tarea.TareaId = Guid.NewGuid();
+    tarea.FechaCreacion = DateTime.Now;
+    await dbContext.AddAsync(tarea);
+    // await dbContext.Tareas.AddAsync(tarea);//segunda forma de agregar el registro
+    await dbContext.SaveChangesAsync();
+
+    return Results.Ok();
+});
+
+
 app.Run();
