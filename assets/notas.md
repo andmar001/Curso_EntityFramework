@@ -59,3 +59,10 @@ nueva migracion nuevo campo "Peso" en la tabla "Categorias"
 - dotnet ef migrations add ColumnPesoCategori
 Actualizar la base de datos los nuevos cambios
 - dotnet ef database update
+
+Codido unico identifier
+- guid generator
+https://guidgenerator.com/
+
+Primer migracion para llenar valores en la tabla "Categorias"
+- dotnet ef migrations add InitialData
