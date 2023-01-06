@@ -1,10 +1,19 @@
+using System.Collections.Immutable;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using project_ef;
 
+// public IConfiguration Configuration { get;  }
+// public Program(IConfiguration configuration)
+// {
+//     Configuration = configuration;
+// }
+
 var builder = WebApplication.CreateBuilder(args);
 //Crea la base de datos en memoria
-builder.Services.AddDbContext<TareasContext>(option => option.UseInMemoryDatabase("TareasDB"));
+// builder.Services.AddDbContext<TareasContext>(p => p.UseInMemoryDatabase("TareasDB"));
+//Conexion a la base de datos
+builder.Services.AddDbContext<TareasContext>(p => p.UseSqlServer(builder.Configuration.GetConnectionString("defaultConnection")));
 
 var app = builder.Build();
 
