@@ -13,7 +13,8 @@ var builder = WebApplication.CreateBuilder(args);
 //Crea la base de datos en memoria
 // builder.Services.AddDbContext<TareasContext>(p => p.UseInMemoryDatabase("TareasDB"));
 //Conexion a la base de datos
-builder.Services.AddDbContext<TareasContext>(p => p.UseSqlServer(builder.Configuration.GetConnectionString("defaultConnection")));
+// builder.Services.AddDbContext<TareasContext>(p => p.UseSqlServer(builder.Configuration.GetConnectionString("defaultConnection")));
+builder.Services.AddSqlServer<TareasContext>(builder.Configuration.GetConnectionString("defaultConnection"));
 
 var app = builder.Build();
 
