@@ -38,4 +38,10 @@ app.MapGet("api/prioridad",async ([FromServices] TareasContext dbContext) =>
     return Results.Ok(dbContext.Tareas.Where(p => p.PrioridadTarea == Prioridad.Baja));
 });
 
+//Que categoria venga con toda la informacion - relacion  join 
+app.MapGet("api/include",async ([FromServices] TareasContext dbContext) =>
+{
+    return Results.Ok(dbContext.Tareas.Include(p=>p.Categoria).Where(p=>p.PrioridadTarea == Prioridad.Alta));
+});
+
 app.Run();

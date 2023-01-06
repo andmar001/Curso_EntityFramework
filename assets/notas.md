@@ -66,3 +66,6 @@ https://guidgenerator.com/
 
 Primer migracion para llenar valores en la tabla "Categorias"
 - dotnet ef migrations add InitialData
+
+# jsonignore 
+El atributo jsonignore nos permite indicar que una propiedad no debe ser serializada en formato json.
