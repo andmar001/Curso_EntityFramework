@@ -20,6 +20,7 @@ namespace project_ef.Models
         public virtual Categoria Categoria { get; set; }
         // [NotMapped]// No se guarda en la base de datos
         public string Resumen { get; set; }// No se guarda en la base de datos
+        public string Tema { get; set; }
     }
 }
 
