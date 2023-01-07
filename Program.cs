@@ -47,8 +47,8 @@ app.MapGet("api/include",async ([FromServices] TareasContext dbContext) =>
 // create
 app.MapPost("api/crearTarea", async ([FromServices] TareasContext dbContext, [FromBody] Tarea tarea) =>
 {
-    tarea.TareaId = Guid.NewGuid();
-    tarea.FechaCreacion = DateTime.Now;
+    tarea.TareaId = Guid.NewGuid(); //generar un id
+    tarea.FechaCreacion = DateTime.Now; //fecha actual
     await dbContext.AddAsync(tarea);
     // await dbContext.Tareas.AddAsync(tarea);//segunda forma de agregar el registro
     await dbContext.SaveChangesAsync();
@@ -76,5 +76,20 @@ app.MapPut("api/actualizarTarea/{id}", async ([FromServices] TareasContext dbCon
     return Results.NotFound();//404    
 });
 
+// delete
+app.MapDelete("api/eliminarTarea/{id}", async ([FromServices] TareasContext dbContext, [FromRoute]Guid id) =>
+{
+    // bsucar el registro actual
+    var tareaActual = await dbContext.Tareas.FindAsync(id);
+
+    if (tareaActual != null)
+    {
+        dbContext.Remove(tareaActual);
+        await dbContext.SaveChangesAsync();
+
+        return Results.Ok();
+    }
+    return Results.NotFound();//404
+});
 
 app.Run();
