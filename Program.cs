@@ -56,5 +56,25 @@ app.MapPost("api/crearTarea", async ([FromServices] TareasContext dbContext, [Fr
     return Results.Ok();
 });
 
+// update
+app.MapPut("api/actualizarTarea/{id}", async ([FromServices] TareasContext dbContext, [FromBody] Tarea tarea, [FromRoute] Guid id) =>
+{
+    var tareaActual = await dbContext.Tareas.FindAsync(id);
+
+    if (tareaActual != null)
+    {
+        // actualizar los datos
+        tareaActual.CategoriaId = tarea.CategoriaId;
+        tareaActual.Titulo = tarea.Titulo;
+        tareaActual.PrioridadTarea = tarea.PrioridadTarea;
+        tareaActual.Descripcion = tarea.Descripcion;
+
+        await dbContext.SaveChangesAsync();
+
+        return Results.Ok();
+    }
+    return Results.NotFound();//404    
+});
+
 
 app.Run();
